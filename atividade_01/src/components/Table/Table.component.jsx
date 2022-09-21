@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { useEffect } from "react"
 
-import { userService } from '../../services/index';
 
-import { Table } from "@sicredi/react";
+import { Button, Checkbox, Table } from "@sicredi/react";
+import { userService } from "../../services/index";
 
 
 
 export const TableUsers = () => {
 
   const [users, setUsers] = useState([])
+  const [ids, setIds] = useState([])
 
   const getUsers = async() => {
     try {
@@ -27,14 +28,54 @@ export const TableUsers = () => {
     getUsers()
   }, [])
 
+  console.log(ids);
+
+  const handleIds = (id) => {
+    const idExists = ids.includes(id)
+    if (idExists) {
+      const newIds = ids.filter((item) => item !== id)
+      setIds(newIds)
+    } else {
+      setIds([...ids, id])
+    }
+  }
+
+  const deletar = async() => {
+    try {
+      for (const iterator of ids) {
+        await userService.deleteUser(iterator)
+      }
+      setIds([])
+      getUsers()
+    } catch (error) {
+      console.log(error);
+    }
+  }
  
 
   const colunas = [
     {
+      label: "",
+      accessor: (item) =>(
+        <>
+        <Checkbox onClick={() => handleIds(item.id)}/>
+        </>
+      )
+    },
+    {
+      label: "id",
+      accessor: (item) =>(
+        <>
+        {/* <Checkbox /> */}
+        {item.id}
+        </>
+      )
+    },
+    {
       label: "Nome",
       accessor: (item) =>(
         <>{item.name}</>
-      )
+      ),
     },
     {
       label: "Email",
@@ -53,7 +94,8 @@ export const TableUsers = () => {
 
   return (
     <div>
-      {users && <Table rows={users} columns={colunas}  />}
+      <Button appearance="danger" disabled={ids.length === 0} onClick={deletar}>Deletar</Button>
+      {users && <Table rows={users} columns={colunas} />}
     </div>
   )
 }

@@ -35,7 +35,9 @@ export const RegisterForm = () => {
     
     try {
       await userService.saveUser(form);
-      navigate("/")
+      const {data} = await userService.login(form)
+      sessionStorage.setItem("token", data.token)
+      navigate("/users")
     } catch (error) {
       console.error(error);
     }
