@@ -6,7 +6,6 @@ import { Button, Checkbox, Table } from "@sicredi/react";
 import { userService } from "../../services/index";
 
 
-
 export const TableUsers = () => {
 
   const [users, setUsers] = useState([])
@@ -66,7 +65,6 @@ export const TableUsers = () => {
       label: "id",
       accessor: (item) =>(
         <>
-        {/* <Checkbox /> */}
         {item.id}
         </>
       )

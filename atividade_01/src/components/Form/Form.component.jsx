@@ -1,16 +1,13 @@
 import styles from './Form.module.css'
 
 import { useState } from 'react';
-
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
 import { REQUIRED, EMAIL } from '../../helpers/validation.helper';
-
 import { userService } from '../../services/index';
-
 import { useNavigate } from 'react-router-dom';
+import { setCookie } from "nookies";
 
 const schemaValidation = yup.object({
   email: yup.string().required(REQUIRED).email(EMAIL),
@@ -34,7 +31,10 @@ export const FormComponent = () => {
 
     try {
       const {data} = await userService.login(form);
-      sessionStorage.setItem("token", data.token)
+      setCookie(null, 'token', data.token, {
+        maxAge: 30 * 24 * 60 * 60,
+        path: '/',
+        })
       navigate("/users")
     } catch (error) {
       console.error(error);

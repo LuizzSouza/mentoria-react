@@ -1,4 +1,6 @@
 import axios from "axios";
+import { parseCookies, setCookie, destroyCookie } from "nookies";
+
 
 export const server = axios.create({
   baseURL: 'https://floating-forest-46361.herokuapp.com',
@@ -6,7 +8,10 @@ export const server = axios.create({
 
 server.interceptors.request.use(async(config) => {
   try {
-    const token = await sessionStorage.getItem("token");
+    const cookies = parseCookies();
+    const token = cookies['token'];
+    // const token = await sessionStorage.getItem("token");
+
     if(token) {
       config.headers.common["Authorization"] = `Bearer ${token}`;
     }
