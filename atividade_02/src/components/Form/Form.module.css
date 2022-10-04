@@ -1,0 +1,13 @@
+.body {
+	background-color: #f6f8fa;
+	border-radius: 6px;
+	border: 1px solid var(--grey-100);
+}
+
+.input {
+	text-align: start;
+}
+
+
+
+

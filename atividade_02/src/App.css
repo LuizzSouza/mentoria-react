@@ -1,0 +1,28 @@
+:root {
+  --blue-100: #0969da;
+  --grey-100: hsla(210, 18%, 87%, 1)
+}
+
+.App {
+  text-align: center;
+}
+
+.Git-form {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  margin: 0 auto;
+}
+
+.logo{
+  margin-top: 30px;
+}
+
+.text-sign{
+  font-size: 24px;
+}
+
+.box {
+  margin: 0 auto;
+}

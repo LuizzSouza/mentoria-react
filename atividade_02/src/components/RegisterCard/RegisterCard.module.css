@@ -1,0 +1,27 @@
+.body{
+    padding: 5px 5px;
+    text-align: center;
+    display: flex;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    margin: 0 auto;
+    margin-top: 15px;
+}
+
+.textLink{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.registerLink{
+    margin: 0 5px;
+    text-decoration: none;
+    color: var(--blue-100);
+}
+
+.registerLink:hover{
+    text-decoration: underline;
+}
