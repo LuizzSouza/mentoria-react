@@ -1,4 +1,4 @@
-import styles from "./Table.module.css"
+import styles from "./Table.module.scss"
 
 import { useState } from "react";
 import { useEffect } from "react"
@@ -96,7 +96,7 @@ export const TableUsers = () => {
     <>
       <Button appearance="danger" disabled={ids.length === 0} onClick={deletar}>Deletar</Button>
       <Layout className={styles.tableLayout}>
-      {users && <Table rows={users} columns={colunas} className={styles.table} />}
+      {users && <Table rows={users} columns={colunas} className={styles.tableLayoutTable} />}
       </Layout>
     </>
   )

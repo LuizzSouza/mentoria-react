@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4%;
+  gap: 15px;
+  font-size: 12px;
+
+  &BlueLink {
+    color: var(--blue-100);
+  }
+
+  &GreyLink {
+    color: #57606a;
+  }
+  
+  &BlueLink:hover{
+    text-decoration: underline;
+  }
+  
+  &GreyLink:hover{
+    color: var(--blue-100);
+    text-decoration: underline;
+  }
+  
+}
+
+a {
+  text-decoration: none;
+}
+
+
+

@@ -1,4 +1,4 @@
-import styles from './Form.module.css'
+import styles from './Form.module.scss'
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -42,14 +42,14 @@ export const FormComponent = () => {
   });
 
   return (
-    <Layout className={styles.body}>  
+    <Layout className={styles.customBody}>  
       <form
         className={styles.form}
         onSubmit={onSubmit}
       >
-        <Input name="email" required className={styles.input} label="Email" {...register('email')} errorMessage={errors.email && errors.email.message} />
+        <Input name="email" required className={styles.customBodyInput} label="Email" {...register('email')} errorMessage={errors.email && errors.email.message} />
         <Spacing appearance="medium" />
-        <Input name="password" type='password' required className={styles.input} label="Password" {...register('password')} errorMessage={errors.password && errors.password.message} />
+        <Input name="password" type='password' required className={styles.customBodyInput} label="Password" {...register('password')} errorMessage={errors.password && errors.password.message} />
         <Spacing appearance="medium" />
         <Button size="large" type='submit' appearance="primary">
             Sign in

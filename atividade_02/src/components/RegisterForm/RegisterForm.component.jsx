@@ -1,4 +1,4 @@
-import styles from '../Form/Form.module.css'
+import styles from '../Form/Form.module.scss'
 
 
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -51,19 +51,18 @@ export const RegisterForm = () => {
   });
 
   return (
-      <Layout className={styles.body}>  
+      <Layout className={styles.customBody}>  
       <form
-        className={styles.form}
         onSubmit={onSubmit}
       >
         
-        <Input name="name" required className={styles.input} label="Name" {...register('name')} errorMessage={errors.name && errors.name.message} />
+        <Input name="name" required className={styles.customBodyInput} label="Name" {...register('name')} errorMessage={errors.name && errors.name.message} />
         <Spacing appearance="small" />
-        <Input name="email" required className={styles.input} label="Email" {...register('email')} errorMessage={errors.email && errors.email.message} />
+        <Input name="email" required className={styles.customBodyInput} label="Email" {...register('email')} errorMessage={errors.email && errors.email.message} />
         <Spacing appearance="small" />
-        <Input name="password" type='password' required className={styles.input} label="Password" {...register('password')} errorMessage={errors.password && errors.password.message} />
+        <Input name="password" type='password' required className={styles.customBodyInput} label="Password" {...register('password')} errorMessage={errors.password && errors.password.message} />
         <Spacing appearance="small" />
-        <Input name="driver_license" required className={styles.input} label="Driver License" {...register('driver_license')} errorMessage={errors.driver_license && errors.driver_license.message} />
+        <Input name="driver_license" required className={styles.customBodyInput} label="Driver License" {...register('driver_license')} errorMessage={errors.driver_license && errors.driver_license.message} />
         <Spacing appearance="medium" />
         <Button size="large" type='submit' appearance="primary">
           Register

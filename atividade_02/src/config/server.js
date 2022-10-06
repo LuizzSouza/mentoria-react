@@ -1,5 +1,5 @@
 import axios from "axios";
-import { parseCookies, setCookie, destroyCookie } from "nookies";
+import { parseCookies} from "nookies";
 
 
 export const server = axios.create({
